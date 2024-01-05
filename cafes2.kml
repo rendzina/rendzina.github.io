@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Folder id="results">
-	<name>cafes in the isle of wight</name>
+	<name>Cafes in the Isle of Wight</name>
 	<Placemark id="1.2.1">
 		<name>The Freshwater Coffee House</name>
 		<address>5 School Green Rd, Freshwater PO40 9AJ</address>
