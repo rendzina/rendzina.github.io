@@ -5,46 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Isle of Wight Tourism</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+ body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-        }
+header {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
 
-        nav {
-            background-color: #444;
-            padding: 0.5em;
-            text-align: center;
-        }
+nav {
+    background-color: #333;
+    padding: 0.5em;
+    text-align: center;
+}
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 1em;
-            margin: 0 0.5em;
-        }
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1em;
+    margin: 0 0.5em;
+    transition: color 0.3s ease-in-out;
+}
 
-        section {
-            padding: 1em;
-        }
+nav a:hover {
+    color: #ffd700; /* Change to the color of your choice on hover */
+}
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+section {
+    padding: 2em;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    header {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        padding: 0.5em;
+        font-size: 0.9em;
+    }
+
+    section {
+        padding: 1em;
+    }
+}
+
     </style>
 </head>
 <body>
