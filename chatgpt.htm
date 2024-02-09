@@ -80,6 +80,9 @@ footer {
     <!-- Add this in the head section -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- Add this in the head section -->
+<link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+<script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
 
 </head>
 <body>
@@ -92,6 +95,7 @@ footer {
         <a href="#about">About</a>
         <a href="#attractions">Attractions</a>
         <a href="#accommodation">Accommodation</a>
+        <a href="#transport">Transport</a>
         <a href="#contact">Contact</a>
     </nav>
 
@@ -183,7 +187,53 @@ footer {
         </script>
     </section>
     
-
+    <section id="transport">
+        <h2>Transport</h2>
+        <p>Explore transportation options on the Isle of Wight using the interactive map below.</p>
+    
+        <!-- Add a container for the OpenLayers map -->
+        <div id="map" style="height: 400px;"></div>
+    
+        <script>
+            // Initialize the OpenLayers map
+            var map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([-1.3044, 50.6938]), // Set the initial coordinates
+                    zoom: 12 // Set the initial zoom level
+                })
+            });
+    
+            // Example: Add a marker for a transportation hub
+            var marker = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.fromLonLat([-1.3044, 50.6938]))
+            });
+    
+            var markerStyle = new ol.style.Style({
+                image: new ol.style.Icon({
+                    src: 'https://openlayers.org/en/v4.6.5/examples/data/icon.png' // You can use your own marker image
+                })
+            });
+    
+            marker.setStyle(markerStyle);
+    
+            var vectorSource = new ol.source.Vector({
+                features: [marker]
+            });
+    
+            var vectorLayer = new ol.layer.Vector({
+                source: vectorSource
+            });
+    
+            map.addLayer(vectorLayer);
+        </script>
+    </section>
+    
     <section id="contact">
         <h2>Contact</h2>
         <p>Provide contact information for tourists to reach out for additional information or assistance.</p>
