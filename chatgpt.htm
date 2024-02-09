@@ -77,6 +77,10 @@ footer {
 }
 
     </style>
+    <!-- Add this in the head section -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 </head>
 <body>
 
@@ -104,7 +108,25 @@ footer {
     <section id="accommodation">
         <h2>Accommodation</h2>
         <p>Include information about hotels, B&Bs, and other accommodation options for tourists.</p>
+    
+        <!-- Add a container for the Leaflet map -->
+        <div id="map" style="height: 400px;"></div>
+    
+        <script>
+            // Initialize the Leaflet map
+            var map = L.map('map').setView([50.6938, -1.3044], 12); // Set the initial coordinates and zoom level
+    
+            // Add a tile layer to the map (you can choose a different provider if needed)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data © OpenStreetMap contributors'
+            }).addTo(map);
+    
+            // Example: Add a marker for a hotel
+            var hotelMarker = L.marker([50.7000, -1.3000]).addTo(map);
+            hotelMarker.bindPopup("<b>Hotel Name</b><br>Address: 123 Main St, Isle of Wight").openPopup();
+        </script>
     </section>
+    
 
     <section id="contact">
         <h2>Contact</h2>
