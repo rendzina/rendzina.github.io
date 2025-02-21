@@ -23,7 +23,7 @@ Visit <a href="http://www.wossac.com" target="_blank">www.wossac.com</a>
 		zoomOffset: -1
 	}).addTo(map);
     map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text.
-    var kmlLayer = new L.KML("DudleyStamp.kml", {async: true});                                                        
+    var kmlLayer = new L.KML("./DudleyStamp.kml", {async: true});                                                        
     kmlLayer.on("loaded", function(e) { 
         map.fitBounds(e.target.getBounds());
     });                                                                                           
