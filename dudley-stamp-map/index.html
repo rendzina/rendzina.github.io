@@ -27,7 +27,7 @@ Visit <a href="http://www.wossac.com" target="_blank">www.wossac.com</a>
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 		tileSize: 512,
 		zoomOffset: -1
-	}.addTo(map);
+	}).addTo(map);
     map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text.
 	var kmz = L.kmzLayer().addTo(map);
 	kmz.on('load', function(e) {
