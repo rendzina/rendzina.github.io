@@ -10,32 +10,62 @@ Uses https://github.com/Raruto/leaflet-kmz -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="https://unpkg.com/leaflet-kmz@latest/dist/leaflet-kmz.js"></script>
 <style>
-	#map { height: 700px; width: 1000px; padding: 0; margin: 0; }
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    #map { 
+        height: 700px; 
+        width: 100%; 
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
 </style>
 </head>
 <body>
-<h1>Dudley Stamp Land Utilisation Map</h1>
-<div id="map"></div>
-Visit <a href="http://www.wossac.com" target="_blank">www.wossac.com</a>
+<div class="container">
+    <h1>Dudley Stamp Land Utilisation Map</h1>
+    <div id="map"></div>
+    <p>Visit <a href="http://www.wossac.com" target="_blank">www.wossac.com</a></p>
+</div>
 <script>
-	var map = L.map('map', {
-    	preferCanvas: true // recommended when loading large layers.
-  	});
-	map.setView(new L.LatLng(50.969200978742606, -3.7932189301459407), 8);
-	var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-		tileSize: 512,
-		zoomOffset: -1
-	}).addTo(map);
-    map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text.
-	var kmz = L.kmzLayer().addTo(map);
-	kmz.on('load', function(e) {
-    	control.addOverlay(e.layer, e.name);
-    	// e.layer.addTo(map);
-	});
-	kmz.load('./DudleyStamp.kmz');
-    var control = L.control.layers(null, null, { collapsed:false }).addTo(map);                                                     
+    // Initialize the map
+    var map = L.map('map', {
+        preferCanvas: true // recommended when loading large layers
+    });
+    
+    // Set initial view
+    map.setView(new L.LatLng(50.969200978742606, -3.7932189301459407), 8);
+    
+    // Add base layer
+    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(map);
+    
+    // Remove Leaflet attribution prefix
+    map.attributionControl.setPrefix('');
+    
+    // Initialize layer control
+    var control = L.control.layers(null, null, { collapsed: false }).addTo(map);
+    
+    // Add KMZ layer
+    var kmz = L.kmzLayer().addTo(map);
+    kmz.on('load', function(e) {
+        control.addOverlay(e.layer, e.name);
+        e.layer.addTo(map); // Uncommented to ensure layer is added to map
+    });
+    kmz.load('./DudleyStamp.kmz');
 </script>
 </body>
 </html>
